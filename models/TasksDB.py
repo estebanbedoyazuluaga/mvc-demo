@@ -39,9 +39,6 @@ class TasksDB:
                 True
             )
             self.tasks.remove(task_to_delete)
-            if deleted_task is None: 
-                return None
-            else: 
-                return deleted_task
+            return deleted_task
 
     # wont do update_task() cos' lazy

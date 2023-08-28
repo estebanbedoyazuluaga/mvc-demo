@@ -8,7 +8,7 @@ function getAllTasks() {
             document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace);
         })
         .catch(err => {
-            console.log(err)
+            document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
         })
 }
 
@@ -21,8 +21,7 @@ function getTaskById() {
                 document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace);
             })
             .catch(err => {
-                document.getElementById("outputArea").textContent = "Task not found";
-                console.log(err)
+                document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
             });
     }
 }
@@ -36,15 +35,15 @@ function createTask() {
 
     fetch("/tasks", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        // we're not displaying the text so no need to use the second and third fields
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newTask)
     })
         .then(res => res.json())
         .then(data => {
             document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace);
+        })
+        .catch(err => {
+            document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
         });
 }
 
@@ -56,6 +55,8 @@ function deleteTaskByID() {
             .then(data => {
                 document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
+            });
     }
 }
