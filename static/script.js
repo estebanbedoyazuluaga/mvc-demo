@@ -1,5 +1,5 @@
 const indentSpace = 4
-const randId = (min, max) => Math.floor(Math.random() * (max-min)) + min
+const randId = (min, max) => Math.floor(Math.random() * (max - min)) + min
 
 function getAllTasks() {
     fetch("/tasks")
@@ -14,21 +14,21 @@ function getAllTasks() {
 
 function getTaskById() {
     const taskId = document.getElementById("taskId").value;
-    if (taskId) {
-        fetch(`/tasks/${taskId}`)
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace);
-            })
-            .catch(err => {
-                document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
-            });
-    }
+
+    fetch(`/tasks/${taskId}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace);
+        })
+        .catch(err => {
+            document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
+        });
+
 }
 
 function createTask() {
     const newTask = {
-        task_id: randId(5, 1000),
+        task_id: randId(4, 99),
         title: document.getElementById("newTaskTitle").value,
         description: document.getElementById("newTaskDescription").value
     };
@@ -49,14 +49,12 @@ function createTask() {
 
 function deleteTaskByID() {
     const taskId = document.getElementById("deleteTaskID").value
-    if (taskId) {
-        fetch(`/tasks/${taskId}`, {method: 'DELETE'})
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace)
-            })
-            .catch(err => {
-                document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
-            });
-    }
+    fetch(`/tasks/${taskId}`, { method: 'DELETE' })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace)
+        })
+        .catch(err => {
+            document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
+        });
 }

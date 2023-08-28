@@ -21,7 +21,11 @@ def get_tasks():
 
 def create_task():
     data = request.get_json()
-    task = Task(data['task_id'], data['title'], data['description'])
+    task = Task(
+        data['task_id'], 
+        data['title'], 
+        data['description']
+    )
     tasks_db.add_task(task)
     return jsonify(task.__dict__), 201
 
