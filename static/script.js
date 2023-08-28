@@ -7,8 +7,8 @@ function getAllTasks() {
         .then(data => {
             document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace);
         })
-        .catch(e => {
-            console.log(e)
+        .catch(err => {
+            console.log(err)
         })
 }
 
@@ -20,15 +20,16 @@ function getTaskById() {
             .then(data => {
                 document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace);
             })
-            .catch(error => {
+            .catch(err => {
                 document.getElementById("outputArea").textContent = "Task not found";
+                console.log(err)
             });
     }
 }
 
 function createTask() {
     const newTask = {
-        id: randId(5, 1000),
+        task_id: randId(5, 1000),
         title: document.getElementById("newTaskTitle").value,
         description: document.getElementById("newTaskDescription").value
     };
@@ -55,5 +56,6 @@ function deleteTaskByID() {
             .then(data => {
                 document.getElementById("outputArea").textContent = JSON.stringify(data, null, indentSpace)
             })
+            .catch(err => console.log(err))
     }
 }

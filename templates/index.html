@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script defer src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
-<body>
+<body class="dark-mode">
     <h1>Task Manager</h1>
 
     <h2>Get All Tasks</h2>
@@ -32,6 +33,6 @@
     </form>
 
     <h2>Output: </h2>
-    <pre id="outputArea" style="background-color: #ccc;"></pre>
+    <pre id="outputArea"></pre>
 </body>
 </html>
