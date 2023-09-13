@@ -1,6 +1,6 @@
 from flask import jsonify, request, render_template
 from models.Task import Task
-from models.TasksDB import TasksDB
+from models.tasks_db import TasksDB
 
 tasks_db = TasksDB()
 
