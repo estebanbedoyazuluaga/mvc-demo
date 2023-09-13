@@ -7,9 +7,10 @@
     git clone https://github.com/estebanbedoyazuluaga/mvc-demo.git
     cd mvc-demo
     ```
--   `venv` is recommended
+-   using `venv` is recommended
     ```bash
-    python3 -m venv .venv/ # run this AFTER clonning the repo
+    # run this AFTER clonning the repo
+    python3 -m venv .venv/ && source .venv/bin/activate
     ```
 -   Make sure you have `flask` installed
     ```bash
