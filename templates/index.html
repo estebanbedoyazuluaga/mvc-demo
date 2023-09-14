@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Task Manager</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script defer src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
+
 <body class="dark-mode">
     <h1>Task Manager</h1>
 
     <h2>Get All Tasks</h2>
-    <form id="getAllTasksForm">
-        <button type="button" onclick="getAllTasks()">Get All Tasks</button>
-    </form>
+    <button type="button" onclick="getAllTasks()">Get All Tasks</button>
 
     <h2>Get Task by ID</h2>
-    <form id="getTaskByIdForm">
-        <input type="number" id="taskId" placeholder="Task ID">
-        <button type="button" onclick="getTaskById()">Get Task</button>
-    </form>
+    <input type="number" id="taskId" placeholder="Task ID">
+    <button type="button" onclick="getTaskById()">Get Task</button>
 
     <h2>Complete a task</h2>
-    <form id="deleteTaskByIdForm">
-        <input type="number" id="deleteTaskID" placeholder="Task ID">
-        <button type="button" onclick="deleteTaskByID()">Complete Task</button>
-    </form>
+    <input type="number" id="deleteTaskID" placeholder="Task ID">
+    <button type="button" onclick="deleteTaskByID()">Complete Task</button>
 
     <h2>Create Task</h2>
-    <form id="createTaskForm">
-        <input type="text" id="newTaskTitle" placeholder="Title">
-        <input type="text" id="newTaskDescription" placeholder="Description">
-        <button type="button" onclick="createTask()">Create Task</button>
-    </form>
+    <input type="text" id="newTaskTitle" placeholder="Title">
+    <input type="text" id="newTaskDescription" placeholder="Description">
+    <button type="button" onclick="createTask()">Create Task</button>
 
     <h2>Output: </h2>
     <pre id="outputArea"></pre>
 </body>
+
 </html>
