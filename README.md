@@ -25,4 +25,4 @@ flask run  --debug --host '0.0.0.0' --port 7777
 
 ## UML Diagram
 
-![](./diagram.png)
+![](./mvc_flask.png)
