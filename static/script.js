@@ -9,6 +9,9 @@ function getAllTasks() {
         })
         .catch(err => {
             document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
+        }).finally(data => {
+            delete document.getElementById("outputArea").dataset.highlighted;
+            hljs.highlightAll()
         })
 }
 
@@ -22,6 +25,9 @@ function getTaskById() {
         })
         .catch(err => {
             document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
+        }).finally(data => {
+            delete document.getElementById("outputArea").dataset.highlighted;
+            hljs.highlightAll()
         });
 
 }
@@ -44,6 +50,9 @@ function createTask() {
         })
         .catch(err => {
             document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
+        }).finally(data => {
+            delete document.getElementById("outputArea").dataset.highlighted;
+            hljs.highlightAll()
         });
 }
 
@@ -56,5 +65,8 @@ function deleteTaskByID() {
         })
         .catch(err => {
             document.getElementById("outputArea").textContent = "An error occurred. \n" + err;
+        }).finally(data => {
+            delete document.getElementById("outputArea").dataset.highlighted;
+            hljs.highlightAll()
         });
 }

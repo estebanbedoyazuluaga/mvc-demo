@@ -5,13 +5,17 @@
     <title>Task Manager</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='highlight/tokyo-night-dark.min.css')}}">
+    <script defer src="{{ url_for('static', filename='highlight/highlight.min.js')}}"></script>
+    <script defer src="{{ url_for('static', filename='highlight/json.min.js')}}"></script>
 </head>
 
 <body class="dark-mode">
     <h1>Task Manager</h1>
 
     <h2>Get All Tasks</h2>
-    <button type="button" onclick="getAllTasks()">Get All Tasks</button>
+    <button type="button" onclick="getAllTasks();delete document.getElementById('outputArea').dataset.highlighted;hljs.highlightAll()">Get All Tasks</button>
 
     <h2>Get Task by ID</h2>
     <input type="number" id="taskId" placeholder="Task ID">
@@ -27,7 +31,22 @@
     <button type="button" onclick="createTask()">Create Task</button>
 
     <h2>Output: </h2>
-    <pre id="outputArea"></pre>
+    <pre><code id="outputArea" class="language-json"></code></pre>
+    <script>
+
+        // new MutationObserver(() => {
+        //     delete document.getElementById("outputArea").dataset.highlighted;
+        //     hljs.highlightAll()
+        // }).observe(
+        //     document.getElementById('outputArea'),
+        //     {
+        //         attributes: true,
+        //         childList: true,
+        //         characterData: true
+        //     }
+        // )
+
+    </script>
 </body>
 
 </html>
